@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Tracker</title>
+</head>
+<body>
+    <h1>Character Creation</h1>
+
+    <form id="sheet">
+        <div>
+            <label for="name">Name: </label>
+            <input name="name" type="text" id="name" />
+
+            <label for="str">STR</label>
+            <input name="str" id="str" type="number" class="stat" value="10"/>
+            <input type="number" id="strMod"  readonly class="mod"/>
+
+            <label for="dex">DEX</label>
+            <input name="dex" id="dex" type="number" class="stat" value="10"/>
+            <input type="number" readonly id='dexMod' value="0" class="mod"/>
+
+            <label for="con">CON</label>
+            <input name="con" id="con" type="number" class="stat" value="10"/>
+            <input id="conMod" type="number" readonly value="0" class="mod"/>
+
+            <label for="int">INT</label>
+            <input name="int" id="int" type="number" class="stat" value="10"/>
+            <input id="intMod" readonly class="mod" value="0" type="number"/>
+
+            <label for="wis">WIS</label>
+            <input type="number" id="wis" class="stat" value="10" name="wis"/>
+            <input type="number" readonly id="wisMod" value="0" class="mod"/>
+
+            <label for="cha">CHA</label>
+            <input name="cha" id="cha" type="number" class="stat" value="10"/>
+            <input type="number" id="chaMod" readonly value="0" class="mod"/>
+        </div>
+        <!-- add the rest of the stats and abilities -->
+        <!-- add css -->
+    </form>
+</body>
+<script src="script.js"></script>
+</html>
