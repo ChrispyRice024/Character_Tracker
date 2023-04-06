@@ -1,0 +1,34 @@
+#sheet{
+    display:flex;
+    justify-content:space-around;
+}
+
+#title{
+    text-align: center;
+}
+
+#nameParent{
+    
+    text-align: center;
+}
+
+.stat{
+    justify-content: center;
+    width:30px;
+}
+
+.mod{
+    width: 15px;
+}
+
+#savingThrows{
+    justify-content: flex-end;
+}
+
+.STValue{
+    width: 30px;
+}
+
+#submitDiv{
+    justify-content:end;
+}

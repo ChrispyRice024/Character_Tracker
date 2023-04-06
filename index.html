@@ -4,42 +4,105 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css"/>
     <title>Character Tracker</title>
 </head>
 <body>
-    <h1>Character Creation</h1>
+    <h1 id="title">Character Creation</h1>
 
     <form id="sheet">
-        <div>
-            <label for="name">Name: </label>
-            <input name="name" type="text" id="name" />
+        <div id="nameParent">
+            <p ><label for="name">Name: </label>
+            <input name="name" type="text" id="name" /></p>
+        </div>
+        <div id="stats">
 
-            <label for="str">STR</label>
+
+            <p><label for="str">STR</label>
             <input name="str" id="str" type="number" class="stat" value="10"/>
-            <input type="number" id="strMod"  readonly class="mod"/>
+            <input  id="strMod"  readonly value="0" class="mod"/></p>
 
-            <label for="dex">DEX</label>
+            <p><label for="dex">DEX</label>
             <input name="dex" id="dex" type="number" class="stat" value="10"/>
-            <input type="number" readonly id='dexMod' value="0" class="mod"/>
+            <input  readonly id='dexMod' value="0" class="mod"/></p>
 
-            <label for="con">CON</label>
+            <p><label for="con">CON</label>
             <input name="con" id="con" type="number" class="stat" value="10"/>
-            <input id="conMod" type="number" readonly value="0" class="mod"/>
+            <input id="conMod"  readonly value="0" class="mod"/></p>
 
-            <label for="int">INT</label>
+            <p><label for="int">INT</label>
             <input name="int" id="int" type="number" class="stat" value="10"/>
-            <input id="intMod" readonly class="mod" value="0" type="number"/>
+            <input id="intMod" readonly class="mod" value="0" /></p>
 
-            <label for="wis">WIS</label>
+            <p><label for="wis">WIS</label>
             <input type="number" id="wis" class="stat" value="10" name="wis"/>
-            <input type="number" readonly id="wisMod" value="0" class="mod"/>
+            <input  readonly id="wisMod" value="0" class="mod"/></p>
 
-            <label for="cha">CHA</label>
+            <p><label for="cha">CHA</label>
             <input name="cha" id="cha" type="number" class="stat" value="10"/>
-            <input type="number" id="chaMod" readonly value="0" class="mod"/>
+            <input  id="chaMod" readonly value="0" class="mod"/></p>
+        </div>
+
+        <div id="savingThrows">
+            <p><input type="checkbox" name="strSt" id="strSt" class="ST"/><input type="number" id="strStValue" name="strStValue" class="STValue"/> Strength</p>
+            <p><input type="checkbox" name="dexSt" id="dexSt" class="ST"/><input type="number" id="dexStValue" name="dexStValue" class="STValue"/> Dexterity</p>
+            <p><input type="checkbox" name="conSt" id="conSt" class="ST"/><input type="number" id="conStValue" name="conStValue" class="STValue"/> Constitution</p>
+            <p><input type="checkbox" name="intSt" id="intSt" class="ST"/><input type="number" id="intStValue" name="intStValue" class="STValue"/> Intelligence</p>
+            <p><input type="checkbox" name="wisSt" id="wisSt" class="ST"/><input type="number" id="wisStValue" name="wisStValue" class="STValue"/> Wisdom</p>
+            <p><input type="checkbox" name="chaSt" id="chaSt" class="ST"/><input type="number" id="chaStValue" name="chaStValue" class="STValue"/> Charisma</p>
+        </div>
+
+        <div id="skills">
+        <p>
+            <label for="acrobatics">Acrobatics<span>(Dex)</span></label>
+            <input type="checkbox" id="acropro" class="proficiency" />
+            <input type="number" name="acrobatics" class="skill dex" id="acrobatics" />
+        </p>
+        <p>
+            <label for="animalHandling">Animal Handling <span>(Wis)</span></label>
+            <input type="checkbox" id="handlingPro" class="proficiency"/>
+            <input type="number" name="animalHandling" class="skill wis"id="animalHandling"/>
+        </p>
+        <p>
+            <label for="arcana">Arcana<span>(Int)</span></label>
+            <input type="checkbox" id="arcanaPro" class="proficiency"/>
+            <input type="number" name="arcana" class="skill int" id="arcana"/>
+        </p>
+        <p>
+            <label for="athletics">Athletics<span>(Str)</span></label>
+            <input type="checkbox" id="athleticsPro" class="proficiency" />
+            <input type="number" name="athletics" class="skill str" id="athletics"/>
+        </p>
+        <p>
+            <label for="deception">Deception<span>(Cha)</span></label>
+            <input type="checkbox" id="deceptionPro" class="proficiency"/>
+            <input type="number" id="deception" class="skill cha" name="deception"/>
+        </p>
+        <p>
+            <label for="history">History<span>(Int)</span></label>
+            <input type="checkbox" id="historyPro" class="proficiency"/>
+            <input type="number" id="history" class="skill int" name="history"/>
+        </p>
+        <p>
+            <label for="insight">Insight<span>(Wis)</span></label>
+            <input type="checkbox" id="insightPro" class="proficiency"/>
+            <input type="number" id="history" class="skill wis" name="insight"/>
+        </p>
+        <p>
+            <label for="intimidate">Intimidation<span>(Cha)</span></label>
+            <input id="intimidatePro" type="checkbox" class="proficiency"/>
+            <input type="number" id="intimidate" name="inimidate" class="skill cha"/>
+        </p>
+        <p>
+
+        </p>
         </div>
         <!-- add the rest of the stats and abilities -->
         <!-- add css -->
+        <!-- have another page to display the created characters. then another page that displays the characters that are selected on the previous page and a side bar that displays the basic info for the selected characters -->
+        <div id="submitDiv">
+            <input type="submit" id="submit" value="Save Character"/>
+        </div>
     </form>
 </body>
 <script src="script.js"></script>
