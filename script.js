@@ -3,20 +3,64 @@ const submit = document.getElementById('submit')
 
 const id = Date.now().toString();
 const charName = document.getElementById("name");
-
+//Stats
 const str = document.getElementById("str");
 const cha = document.getElementById("cha");
 const dex = document.getElementById("dex");
 const con = document.getElementById("con");
 const wis = document.getElementById("wis");
 const int = document.getElementById("int");
-
+//Mods
 const dexMod = document.getElementById("dexMod");
 const strMod = document.getElementById("strMod");
 const chaMod = document.getElementById("chaMod");
 const conMod = document.getElementById("conMod");
 const wisMod = document.getElementById("wisMod");
 const intMod = document.getElementById("intMod");
+//Skills
+const acrobatics = document.getElementById('acrobatics')
+const animalHandling = document.getElementById('animalHandling')
+const arcana = document.getElementById('arcana')
+const athletics = document.getElementById('athletics')
+const deception = document.getElementById('deception')
+const history = document.getElementById('history')
+const insight = document.getElementById('insight')
+const intimidate = document.getElementById('intimidate')
+const investigate = document.getElementById('investigate')
+const medicine = document.getElementById('medicine')
+const nature = document.getElementById('nature')
+const perception = document.getElementById('perception')
+const performance = document.getElementById('performance')
+const persuasion = document.getElementById('persuasion')
+const religion = document.getElementById('religion')
+const slightHand = document.getElementById('slightHand')
+const stealth = document.getElementById('stealth')
+const survival = document.getElementById('survival')
+
+const skills = [
+    acrobatics,
+    animalHandling,
+    arcana,
+    athletics,
+    deception,
+    history,
+    insight,
+    intimidate,
+    investigate,
+    medicine,
+    nature,
+    perception,
+    performance,
+    persuasion,
+    religion,
+    slightHand,
+    stealth,
+    survival
+]
+ 
+for(let i=0; i <= skills.length; i++) {
+    console.log(`skill ${skills[i]}`, skills[i])
+}
 
 const findMod = (stat) => {
   return Math.ceil((stat - 10) / 2).toString();
