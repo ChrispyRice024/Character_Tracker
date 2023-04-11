@@ -3,6 +3,8 @@ const submit = document.getElementById('submit')
 
 const id = Date.now().toString();
 const charName = document.getElementById("name");
+//Classes
+var wisSkill = document.getElementsByClassName('wis')
 //Stats
 const str = document.getElementById("str");
 const cha = document.getElementById("cha");
@@ -36,6 +38,24 @@ const religion = document.getElementById('religion')
 const slightHand = document.getElementById('slightHand')
 const stealth = document.getElementById('stealth')
 const survival = document.getElementById('survival')
+//Arrays
+const stats = [
+    str,
+    dex,
+    con,
+    wis,
+    int,
+    cha
+]
+
+const mods = [
+    dexMod,
+    strMod,
+    conMod,
+    wisMod.toString(),
+    intMod,
+    chaMod
+]
 
 const skills = [
     acrobatics,
@@ -57,16 +77,13 @@ const skills = [
     stealth,
     survival
 ]
- 
-for(let i=0; i <= skills.length; i++) {
-    console.log(`skill ${skills[i]}`, skills[i])
-}
+
 
 const findMod = (stat) => {
   return Math.ceil((stat - 10) / 2).toString();
 };
 
-//finish the object
+
 let character = {
     id:`${id}`
 };
@@ -106,7 +123,7 @@ wis.addEventListener('change', (e) => {
     e.preventDefault()
 
     mod = findMod(e.target.value)
-
+    console.log(wisMod.value)
     wisMod.setAttribute('value', mod)
 
     character['wis'] = e.target.value
@@ -154,4 +171,9 @@ submit.addEventListener('click', (e) => {
 // localStorage.clear()
     localStorage.setItem(`${character.id}`, JSON.stringify(character))
 })
+console.log(wisSkill)
+for (let i=0; i < wisSkill.length; i++) {
+    console.log(wisSkill[i].value)
+    wisSkill[i].value = wisMod.value
+}
 //add submit button thathas a listener to submit the form as a new character to localstorage
