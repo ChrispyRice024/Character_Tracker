@@ -4,16 +4,21 @@ const submit = document.getElementById('submit')
 const id = Date.now().toString();
 const charName = document.getElementById("name");
 //Classes
-var wisSkill = document.getElementsByClassName('wis')
+const wisSkill = document.getElementsByClassName('wis')
+    const dexSkill = document.getElementsByClassName('dex')
+const intSkill = document.getElementsByClassName('int')
+const strSkill = document.getElementsByClassName('str')
+const conSkill = document.getElementsByClassName('con')
+const chaSkill = document.getElementsByClassName('cha')
 //Stats
 const str = document.getElementById("str");
 const cha = document.getElementById("cha");
-const dex = document.getElementById("dex");
+    const dex = document.getElementById("dex");
 const con = document.getElementById("con");
 const wis = document.getElementById("wis");
 const int = document.getElementById("int");
 //Mods
-const dexMod = document.getElementById("dexMod");
+    const dexMod = document.getElementById("dexMod");
 const strMod = document.getElementById("strMod");
 const chaMod = document.getElementById("chaMod");
 const conMod = document.getElementById("conMod");
@@ -97,16 +102,21 @@ charName.addEventListener('change', (e) => {
     console.log(e.target.value)
 })
 
-dex.addEventListener("change", (e) => {
-  e.preventDefault();
+    dex.addEventListener("change", (e) => {
+    e.preventDefault();
 
-  mod = findMod(e.target.value);
+    mod = findMod(e.target.value);
 
-  dexMod.setAttribute("value", mod);
+    dexMod.setAttribute("value", mod);
 
-  character['dex'] = e.target.value
-  character['dexMod'] = mod
-});
+    for (let i=0; i < dexSkill.length; i++) {
+        dexSkill[i].value = +dexMod.value
+        character[dexSkill[i].name] = dexMod.value
+        }
+        
+    character['dex'] = e.target.value
+    character['dexMod'] = mod
+    });
 
 str.addEventListener('change', (e) => {
     e.preventDefault()
@@ -121,13 +131,20 @@ str.addEventListener('change', (e) => {
 
 wis.addEventListener('change', (e) => {
     e.preventDefault()
-
+    
     mod = findMod(e.target.value)
     console.log(wisMod.value)
     wisMod.setAttribute('value', mod)
+    
+    for (let i=0; i < wisSkill.length; i++) {
+        console.log(wisSkill[i].value)
+        wisSkill[i].value = wisMod.value
+        character[wisSkill[i].name] = wisMod.value
+    }
 
     character['wis'] = e.target.value
     character['wisMod'] = mod
+    console.log('char.', character)
 })
 
 con.addEventListener('change', (e) => {
