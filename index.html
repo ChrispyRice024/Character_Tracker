@@ -76,91 +76,127 @@
             <label for="acrobatics">Acrobatics<span>(Dex)</span></label>
             <input type="checkbox" id="acropro" class="proficiency" />
             <input type="number" name="acrobatics" value="0" class="skill dex" id="acrobatics" />
+            <input value="0" readonly id="acrobaticsMod" class="dexMod dex mod"/>
+            <input value="0" readonly id="acrobaticsSkill" class="skill dex"/>
         </p>
         <p>
             <label for="animalHandling">Animal Handling <span>(Wis)</span></label>
             <input type="checkbox" id="handlingPro" class="proficiency"/>
             <input type="number" name="animalHandling" value="0" class="skill wis"id="animalHandling"/>
+            <input value="0" readonly id="animalMod" class="wisMod wis mod"/>
+            <input value="0" readonly id="animalSkill" class="skill wis"/>
         </p>
         <p>
             <label for="arcana">Arcana<span>(Int)</span></label>
             <input type="checkbox" id="arcanaPro" class="proficiency"/>
             <input type="number" name="arcana" value="0" class="skill int" id="arcana"/>
+            <input value="0" readonly id="arcanaMod" class="intMod int mod"/>
+            <input value="0" readonly id="arcanaSkill" class="skill int"/>
         </p>
         <p>
             <label for="athletics">Athletics<span>(Str)</span></label>
             <input type="checkbox" id="athleticsPro" class="proficiency" />
             <input type="number" name="athletics" value="0" class="skill str" id="athletics"/>
+            <input readonly id="athleticsMod" value="0" class="strMod str mod"/>
+            <input value="0" readonly id="athleticsSkill" class="skill str"/>
         </p>
         <p>
             <label for="deception">Deception<span>(Cha)</span></label>
             <input type="checkbox" id="deceptionPro" class="proficiency"/>
             <input type="number" id="deception" value="0" class="skill cha" name="deception"/>
+            <input value="0" readonly id="deceptionMod" class="chaMod cha mod"/>
+            <input value="0" readonly id="deceptionSkill" class="skill cha"/>
         </p>
         <p>
             <label for="history">History<span>(Int)</span></label>
             <input type="checkbox" id="historyPro" class="proficiency"/>
             <input type="number" id="history" value="0" class="skill int" name="history"/>
+            <input value="0" readonly id="historyMod" class="int intMod mod"/>
+            <input value="0" readonly id="historySkill" class="skill int"/>
         </p>
         <p>
             <label for="insight">Insight<span>(Wis)</span></label>
             <input type="checkbox" id="insightPro" class="proficiency"/>
             <input type="number" id="insight" value="0" class="skill wis" name="insight"/>
+            <input value="0" readonly id="insightMod" class="wisMod wis mod"/>
+            <input value="0" readonly id="insightSkill" class="skill wis"/>
         </p>
         <p>
             <label for="intimidate">Intimidation<span>(Cha)</span></label>
             <input id="intimidatePro" type="checkbox" class="proficiency"/>
             <input type="number" id="intimidate" value="0" name="inimidate" class="skill cha"/>
+            <input value="0" readonly id="intimidateMod" class="chaMod cha mod"/>
+            <input value="0" readonly id="intimidateSkill" class="skill cha"/>
         </p>
         <p>
             <label class="int" for="investigate">Investigation<span>(Int)</span></label>
             <input id="investigatePro" type="checkbox" class="proficiency"/>
             <input type="number" id="investigate" value="0" name="investigate" class="skill int"/>
+            <input value="0" readonly id="investigateMod" class="intMod int mod"/>
+            <input value="0" readonly id="investigateSkill" class="skill int"/>
         </p>
         <p>
             <label for="medicine" class="wis">Medicine<span>(Wis)</span></label>
             <input id="medicinePro" type="checkbox" class="proficiency"/>
             <input type="number" id="medicine" value="0" name="medicine" class="wis skill"/>
+            <input value="0" readonly id="medicineMod" class="wisMod wis mod"/>
+            <input value="0" readonly id="medicineSkill" class="skill wis"/>
         </p>
         <p>
             <label for="nature" class="int" >Nature<span>(Int)</span></label>
             <input id="naturePro" type="checkbox" class="proficiency"/>
             <input type="number" id="nature" value="0" name="nature" class="int skill"/>
+            <input value="0" readonly id="natureMod" class="int intMod mod"/>
+            <input value="0" readonly id="natureSkill" class="skill int"/>
         </p>
         <p>
             <label for="perception" class="wis">Perception<span>(Wis)</span></label>
             <input id="perceptionPro" type="checkbox" class="proficiency"/>
             <input id='perception' name="perception" value="0" type="number" class="wis skill"/>
+            <input value="0" readonly id="perceptionMod" class="wis wisMod mod"/>
+            <input value="0" readonly id="perceptionSkill" class="skill wis"/>
         </p>
         <p>
             <label for="performance" class="cha">Performance<span>(Cha)</span></label>
             <input id="performancePro" type="checkbox" class="proficiency"/>
             <input id="performance" type="number" value="0" name="performance" class="cha skill" />
+            <input value="0" readonly id="performanceMod" class="cha chaMod mod"/>
+            <input value="0" readonly id="performanceSkill" class="skill cha"/>
         </p>
         <p>
             <label for="persuasion" class="cha">Persuasion<span>(Cha)</span></label>
             <input id="persuasionPro" type="checkbox" class="proficiency"/>
             <input id="persuasion" type="number" value="0" name="persuasion" class="cha skill"/>
+            <input value="0" readonly id="persuasionMod" class="cha chaMod mod"/>
+            <input value="0" readonly id="persuasionSkill" class="skill cha"/>
         </p>
         <p>
             <label for="religion" class="int">Religion<span>(Int)</span></label>
             <input id="religionPro" type="checkbox" class="proficiency"/>
             <input id="religion" type="number" value="0" name="religion" class="int skill"/>
+            <input value="0" readonly id="religionMod" class="int intMod mod"/>
+            <input value="0" readonly id="religionSkill" class="skill int"/>
         </p>
         <p>
             <label for="slightHand" class="dex">Slight Of Hand<span>(Dex)</span></label>
             <input type="checkbox" id="slightHandPro" class="proficiency"/>
             <input id="slightHand" type="number" value="0" name="slightHand" class="dex skill"/>
+            <input value="0" readonly id="slightHandMod" class="dex dexMod mod"/>
+            <input value="0" readonly id="slightHandSkill" class="skill dex"/>
         </p>
         <p>
             <label for="stealth" class="dex">Stealth<span>(Dex)</span></label>
             <input type="checkbox" id="stealthPro" class="proficiency"/>
             <input id="stealth" type="number" value="0" name="stealth" class="dex skill"/>
+            <input value="0" readonly id="stealthMod" class="dex dexMod mod"/>
+            <input value="0" readonly id="stealthSkill" class="skill dex"/>
         </p>
         <p>
             <label for="survival" class="wis">Survival<span>(Wis)</span></label>
             <input type="checkbox" id="survivalPro" class="proficiency" />
-            <input id="survival" type="number" value="0" name="survival" class="wis skill"/> 
+            <input id="survival" type="number" value="0" name="survival" class="wis skill"/>
+            <input value="0" readonly id="survivalMod" class="wis wisMod mod"/>
+            <input value="0" readonly id="survivalSkill" class="skill wis"/>
         </p>
         </div>
         <div>

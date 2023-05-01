@@ -3,22 +3,29 @@ const submit = document.getElementById('submit')
 
 const id = Date.now().toString();
 const charName = document.getElementById("name");
-//Classes
+//Stat Classes
 const wisSkill = document.getElementsByClassName('wis')
-    const dexSkill = document.getElementsByClassName('dex')
+const dexSkill = document.getElementsByClassName('dex')
 const intSkill = document.getElementsByClassName('int')
 const strSkill = document.getElementsByClassName('str')
 const conSkill = document.getElementsByClassName('con')
 const chaSkill = document.getElementsByClassName('cha')
+//Mod Classes
+const dexClass = document.getElementsByClassName('dexMod')
+const strClass = document.getElementsByClassName('strMod')
+const conClass = document.getElementsByClassName('conMod')
+const intClass = document.getElementsByClassName('intMod')
+const wisClass = document.getElementsByClassName('wisMod')
+const chaClass = document.getElementsByClassName('chaMod')
 //Stats
 const str = document.getElementById("str");
 const cha = document.getElementById("cha");
-    const dex = document.getElementById("dex");
+const dex = document.getElementById("dex");
 const con = document.getElementById("con");
 const wis = document.getElementById("wis");
 const int = document.getElementById("int");
 //Mods
-    const dexMod = document.getElementById("dexMod");
+const dexMod = document.getElementById("dexMod");
 const strMod = document.getElementById("strMod");
 const chaMod = document.getElementById("chaMod");
 const conMod = document.getElementById("conMod");
@@ -43,7 +50,50 @@ const religion = document.getElementById('religion')
 const slightHand = document.getElementById('slightHand')
 const stealth = document.getElementById('stealth')
 const survival = document.getElementById('survival')
+//Skill Mods
+const acrobaticsMod = document.getElementById('acrobaticsMod')
+const animalMod = document.getElementById('animalMod')
+const arcanaMod = document.getElementById('arcanaMod')
+const athleticsMod = document.getElementById('athleticsMod')
+const deceptionMod = document.getElementById('deceptionMod')
+const historyMod = document.getElementById('historyMod')
+const insightMod = document.getElementById('insightMod')
+const intimidateMod = document.getElementById('intimidateMod')
+const investigateMod = document.getElementById('investigateMod')
+const medicineMod = document.getElementById('medicineMod')
+const natureMod = document.getElementById('natureMod')
+const perceptionMod = document.getElementById('perceptionMod')
+const performanceMod = document.getElementById('performanceMod')
+const persuasionMod = document.getElementById('persuasionMod')
+const religionMod = document.getElementById('religionMod')
+const slightHandMod = document.getElementById('slightHandMod')
+const stealthMod = document.getElementById('stealthMod')
+const survivalMod = document.getElementById('survivalMod')
+//Skill Totals
+const acrobaticsSkill = document.getElementById('acrobaticsSkill')
+const animalSkill = document.getElementById('animalSkill')
+const arcanaSkill = document.getElementById('arcanaSkill')
+const athleticsSkill = document.getElementById('athleticsSkill')
+const deceptionSkill = document.getElementById('deceptionSkill')
+const historySkill = document.getElementById('historySkill')
+const insightSkill = document.getElementById('insightSkill')
+const intimidationSkill = document.getElementById('intimidationSkill')
+const investigateSkill = document.getElementById('investigateSkill')
+const medicineSkill = document.getElementById('medicineSkill')
+const natureSkill = document.getElementById('natureSkill')
+const perceptionSkill = document.getElementById('perceptionSkill')
+const performanceSkill = document.getElementById('performanceSkill')
+const persuasionSkill = document.getElementById('persuasionSkill')
+const religionSkill = document.getElementById('religionSkill')
+const slightHandSkill = document.getElementById('slightHandSkill')
+const stealthSkill = document.getElementById('stealthSkill')
+const survivalSkill = document.getElementById('survivalSkill')
 //Arrays
+const dexSkills = [
+    acrobaticsSkill,
+    slightHandSkill,
+    stealthSkill
+]
 const stats = [
     str,
     dex,
@@ -57,7 +107,7 @@ const mods = [
     dexMod,
     strMod,
     conMod,
-    wisMod.toString(),
+    wisMod,
     intMod,
     chaMod
 ]
@@ -85,15 +135,22 @@ const skills = [
 
 
 const findMod = (stat) => {
-  return Math.ceil((stat - 10) / 2).toString();
+  return Math.ceil((stat - 10) / 2);
 };
 
+const findSkillMod = (skill, mod) => {
+    return skill + mod
+}
 
 let character = {
     id:`${id}`
 };
 console.log(character)
 
+// const determineStats = (e) => {
+//     return strMod + e.target.value
+// }
+//Setting Character Name
 charName.addEventListener('change', (e) => {
     e.preventDefault()
 
@@ -101,29 +158,30 @@ charName.addEventListener('change', (e) => {
     console.log(character)
     console.log(e.target.value)
 })
-
-    dex.addEventListener("change", (e) => {
+//Setting Character Modifiers
+dex.addEventListener("change", (e) => {
     e.preventDefault();
-
     mod = findMod(e.target.value);
 
     dexMod.setAttribute("value", mod);
 
-    for (let i=0; i < dexSkill.length; i++) {
-        dexSkill[i].value = +dexMod.value
-        character[dexSkill[i].name] = dexMod.value
-        }
-        
+    for(let i=0; i < dexClass.length; i++){
+        dexClass[i].setAttribute('value', mod)
+    }
+
     character['dex'] = e.target.value
     character['dexMod'] = mod
-    });
+});
 
 str.addEventListener('change', (e) => {
     e.preventDefault()
-
+    
     mod = findMod(e.target.value)
 
     strMod.setAttribute('value', mod)
+    for(let i=0; i < strClass.length; i++){
+        strClass[i].setAttribute('value', mod)
+    }
 
     character['str'] = e.target.value
     character['strMod'] = mod
@@ -135,16 +193,13 @@ wis.addEventListener('change', (e) => {
     mod = findMod(e.target.value)
     console.log(wisMod.value)
     wisMod.setAttribute('value', mod)
-    
-    for (let i=0; i < wisSkill.length; i++) {
-        console.log(wisSkill[i].value)
-        wisSkill[i].value = wisMod.value
-        character[wisSkill[i].name] = wisMod.value
+
+    for(let i=0; i < wisClass.length; i++){
+        wisClass[i].setAttribute('value', mod)
     }
 
     character['wis'] = e.target.value
     character['wisMod'] = mod
-    console.log('char.', character)
 })
 
 con.addEventListener('change', (e) => {
@@ -154,6 +209,10 @@ con.addEventListener('change', (e) => {
 
     
     conMod.setAttribute('value', mod)
+
+    for(let i=0; i < conClass.length; i++){
+        conClass[i].setAttribute('value', mod)
+    }
 
     character['con'] = e.target.value
     character['conMod'] = mod
@@ -166,6 +225,10 @@ int.addEventListener('change', (e) => {
 
     intMod.setAttribute('value', mod)
 
+    for(let i=0; i < intClass.length; i++){
+        intClass[i].setAttribute('value', mod)
+    }
+
     character['int'] = e.target.value
     character['intMod'] = mod
 })
@@ -177,10 +240,161 @@ cha.addEventListener('change', (e) => {
 
     chaMod.setAttribute('value', mod)
 
+    for(let i=0; i < chaClass.length; i++){
+        chaClass[i].setAttribute('value', mod)
+    }
+
     character['cha'] = e.target.value
     character['chaMod'] = mod
 })
 console.log(localStorage)
+//Determine Skill Values
+acrobatics.addEventListener('change', (e) => {
+    e.preventDefault()
+    console.log(dexMod.value)
+    mod = parseInt(dexMod.value)
+    skill = parseInt(acrobatics.value)
+    acrobaticsSkill.value = mod + skill
+})
+
+animalHandling.addEventListener('change', (e) => {
+    e.preventDefault()
+
+    mod = parseInt(wisMod.value)
+    skill = parseInt(animalHandling.value)
+    animalSkill.value = mod + skill
+})
+
+arcana.addEventListener('change', (e) => {
+    e.preventDefault()
+
+    mod = parseInt(intMod.value)
+    skill = parseInt(arcana.value)
+    arcanaSkill.value = mod + skill
+})
+
+athletics.addEventListener('change', (e) => {
+    e.preventDefault()
+
+    mod = parseInt(strMod.value)
+    skill = parseInt(athletics.value)
+    athleticsSkill.value = mod + skill
+})
+
+deception.addEventListener('change', (e) => {
+    e.preventDefault()
+
+    mod = parseInt(chaMod.value)
+    skill = parseInt(deception.value)
+    deceptionSkill.value = mod + skill
+})
+
+history.addEventListener('change', (e) => {
+    e.preventDefault()
+
+    mod = parseInt(intMod.value)
+    skill = parseInt(history.value)
+    historySkill.value = mod + skill
+})
+
+insight.addEventListener('change', (e) => {
+    e.preventDefault()
+
+    mod = parseInt(wisMod.value)
+    skill = parseInt(insight.value)
+    insightSkill.value = mod + skill
+})
+
+intimidate.addEventListener('change', (e) => {
+    e.preventDefault()
+
+    mod = parseInt(chaMod.value)
+    skill = parseInt(intimidate.value)
+    intimidateSkill.value = mod + skill
+})
+
+investigate.addEventListener('change', (e) => {
+    e.preventDefault()
+
+    mod = parseInt(intMod.value)
+    skill = parseInt(investigate.value)
+    investigateSkill.value = mod + skill
+})
+
+medicine.addEventListener('change', (e) => {
+    e.preventDefault()
+
+    mod = parseInt(wisMod.value)
+    skill = parseInt(medicine.value)
+    medicineSkill.value = mod + skill
+})
+
+nature.addEventListener('change', (e) => {
+    e.preventDefault()
+
+    mod = parseInt(intMod.value)
+    skill = parseInt(nature.value)
+    natureSkill.value = mod + skill
+})
+
+perception.addEventListener('change', (e) => {
+    e.preventDefault()
+
+    mod = parseInt(wisMod.value)
+    skill = parseInt(perception.value)
+    perceptionSkill.value = mod + skill
+})
+
+performance.addEventListener('change', (e) => {
+    e.preventDefault()
+
+    mod = parseInt(chaMod.value)
+    skill = parseInt(performance.value)
+    performanceSkill.value = mod + skill
+})
+
+persuasion.addEventListener('change', (e) => {
+    e.preventDefault()
+
+    mod = parseInt(chaMod.value)
+    skill = parseInt(persuasion.value)
+    persuasionSkill.value = mod + skill
+})
+
+religion.addEventListener('change', (e) => {
+    e.preventDefault()
+
+    mod = parseInt(intMod.value)
+    skill = parseInt(religion.value)
+    religionSkill.value = mod + skill
+})
+
+slightHand.addEventListener('change', (e) => {
+    e.preventDefault()
+
+    mod = parseInt(dexMod.value)
+    skill = parseInt(slightHand.value)
+    slightHandSkill.value = mod + skill
+})
+
+stealth.addEventListener('change', (e) => {
+    e.preventDefault()
+
+    mod = parseInt(dexMod.value)
+    skill = parseInt(stealth.value)
+    stealthSkill.value = mod + skill
+})
+
+survival.addEventListener('change', (e) => {
+    e.preventDefault()
+
+    mod = parseInt(wisMod.value)
+    skill = parseInt(survival.value)
+    survivalSkill.value = mod + skill
+})
+
+console.log(dexMod.value)
+//Submit Character To Local Storage
 submit.addEventListener('click', (e) => {
     e.preventDefault()
     window.location.reload()
@@ -188,9 +402,5 @@ submit.addEventListener('click', (e) => {
 // localStorage.clear()
     localStorage.setItem(`${character.id}`, JSON.stringify(character))
 })
-console.log(wisSkill)
-for (let i=0; i < wisSkill.length; i++) {
-    console.log(wisSkill[i].value)
-    wisSkill[i].value = wisMod.value
-}
-//add submit button thathas a listener to submit the form as a new character to localstorage
+console.log(character)
+
