@@ -12,8 +12,27 @@
 
     <form id="sheet">
         <div id="nameParent">
-            <p ><label for="name">Name: </label>
-            <input name="name" type="text" id="name" /></p>
+            <p>
+                <label for="name">Name: </label>
+            </p>
+            <p>
+                <input name="name" type="text" id="name" placeholder="Name" />
+            </p>
+            <p>
+                <label htmlFor="race">Race: </label>
+            </p>
+            <p>
+                <input id="raceInput" list="racesList" placeholder="Choose Your Race"/>
+                <datalist id="racesList">
+
+                </datalist>
+            </p>
+        </div>
+        <div id="raceParent">
+            
+        </div>
+        <div id="classParent">
+
         </div>
         <div id="stats">
             <p>
@@ -212,6 +231,11 @@
             <input type="submit" id="submit" value="Save Character"/>
         </div>
     </form>
+    <!-- <script>
+        console.log()
+    </script> -->
 </body>
-<script src="script.js"></script>
+<script type="module" src="api.js"></script>
+<script type="module" src="script.js"></script>
+
 </html>

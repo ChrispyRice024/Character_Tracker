@@ -3,6 +3,7 @@ const submit = document.getElementById('submit')
 
 const id = Date.now().toString();
 const charName = document.getElementById("name");
+
 //Stat Classes
 const wisSkill = document.getElementsByClassName('wis')
 const dexSkill = document.getElementsByClassName('dex')
@@ -88,12 +89,32 @@ const religionSkill = document.getElementById('religionSkill')
 const slightHandSkill = document.getElementById('slightHandSkill')
 const stealthSkill = document.getElementById('stealthSkill')
 const survivalSkill = document.getElementById('survivalSkill')
+//Proficiencies
+const acrobaticsPro = document.getElementById('acrobaticsPro')
+const handlingPro = document.getElementById('handlingPro')
+const arcanaPro = document.getElementById('arcanaPro')
+const athleticsPro = document.getElementById('athleticsPro')
+const deceptionPro = document.getElementById('deceptionPro')
+const historyPro = document.getElementById('historyPro')
+const insightPro = document.getElementById('insightPro')
+const intimidatePro = document.getElementById('intimidatePro')
+const investigatePro = document.getElementById('investiatePro')
+const medicinePro = document.getElementById('medicinePro')
+const naturePro = document.getElementById('naturePro')
+const perceptionPro = document.getElementById('perceptionPro')
+const performancePro = document.getElementById('performacePro')
+const persuasionPro = document.getElementById('persuasionPro')
+const religionPro = document.getElementById('religionPro')
+const slightHandPro = document.getElementById('slightHandPro')
+const stelathPro = document.getElementById('stealthPro')
+const survivalPro = document.getElementById('survivalPro')
 //Arrays
 const dexSkills = [
     acrobaticsSkill,
     slightHandSkill,
     stealthSkill
 ]
+
 const stats = [
     str,
     dex,
@@ -133,6 +154,47 @@ const skills = [
     survival
 ]
 
+const skillTotal = [
+    acrobaticsSkill,
+    animalSkill,
+    arcanaSkill,
+    athleticsSkill,
+    deceptionSkill,
+    historySkill,
+    insightSkill,
+    intimidationSkill,
+    investigateSkill,
+    medicineSkill,
+    natureSkill,
+    perceptionSkill,
+    performanceSkill,
+    persuasionSkill,
+    religionSkill,
+    slightHandSkill,
+    stealthSkill,
+    survivalSkill
+]
+
+const proficiencies = [
+    acrobaticsPro,
+    handlingPro,
+    arcanaPro,
+    athleticsPro,
+    deceptionPro,
+    historyPro,
+    insightPro,
+    intimidatePro,
+    investigatePro,
+    medicinePro,
+    naturePro,
+    perceptionPro,
+    performancePro,
+    persuasionPro,
+    religionPro,
+    slightHandPro,
+    stealthPro,
+    survivalPro
+]
 
 const findMod = (stat) => {
   return Math.ceil((stat - 10) / 2);
@@ -161,7 +223,7 @@ charName.addEventListener('change', (e) => {
 //Setting Character Modifiers
 dex.addEventListener("change", (e) => {
     e.preventDefault();
-    mod = findMod(e.target.value);
+    const mod = findMod(e.target.value);
 
     dexMod.setAttribute("value", mod);
 
@@ -176,7 +238,7 @@ dex.addEventListener("change", (e) => {
 str.addEventListener('change', (e) => {
     e.preventDefault()
     
-    mod = findMod(e.target.value)
+    const mod = findMod(e.target.value)
 
     strMod.setAttribute('value', mod)
     for(let i=0; i < strClass.length; i++){
@@ -190,7 +252,7 @@ str.addEventListener('change', (e) => {
 wis.addEventListener('change', (e) => {
     e.preventDefault()
     
-    mod = findMod(e.target.value)
+    const mod = findMod(e.target.value)
     console.log(wisMod.value)
     wisMod.setAttribute('value', mod)
 
@@ -205,7 +267,7 @@ wis.addEventListener('change', (e) => {
 con.addEventListener('change', (e) => {
     e.preventDefault()
 
-    mod = findMod(e.target.value)
+    const mod = findMod(e.target.value)
 
     
     conMod.setAttribute('value', mod)
@@ -221,7 +283,7 @@ con.addEventListener('change', (e) => {
 int.addEventListener('change', (e) => {
     e.preventDefault()
 
-    mod = findMod(e.target.value)
+    const mod = findMod(e.target.value)
 
     intMod.setAttribute('value', mod)
 
@@ -236,7 +298,7 @@ int.addEventListener('change', (e) => {
 cha.addEventListener('change', (e) => {
     e.preventDefault()
 
-    mod = findMod(e.target.value)
+    const mod = findMod(e.target.value)
 
     chaMod.setAttribute('value', mod)
 
@@ -247,7 +309,8 @@ cha.addEventListener('change', (e) => {
     character['cha'] = e.target.value
     character['chaMod'] = mod
 })
-console.log(localStorage)
+
+
 //Determine Skill Values
 acrobatics.addEventListener('change', (e) => {
     e.preventDefault()
@@ -393,7 +456,14 @@ survival.addEventListener('change', (e) => {
     survivalSkill.value = mod + skill
 })
 
-console.log(dexMod.value)
+const updateSkills = () => {
+    for(let i=0; i < skills.length; i++){
+        if(proficiency[i] === true){
+            skills[i].value += 3
+    }
+}
+}
+
 //Submit Character To Local Storage
 submit.addEventListener('click', (e) => {
     e.preventDefault()
