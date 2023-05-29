@@ -89,31 +89,37 @@
             <p><label for="cha">CHA</label>
             <input name="cha" id="cha" type="number" class="stat" value="10"/>
             <input  id="chaMod" readonly value="0" class="mod"/></p>
+
+            <div id="savingThrows">
+                <p>
+                    <h2>Saving Throws</h2>
+                </p>
+                <p><input type="checkbox" name="strSt" id="strSt" class="ST str"/>
+                    <input type="number" id="strStValue" name="strStValue" class="STValue str"/> Strength</p>
+    
+                <p><input type="checkbox" name="dexSt" id="dexSt" class="ST dex"/>
+                    <input type="number" value="" id="dexStValue" name="dexStValue" class="dex STValue"/> Dexterity</p>
+    
+                <p><input type="checkbox" name="conSt" id="conSt" class="ST con"/>
+                    <input type="number" id="conStValue" name="conStValue" class="con STValue"/> Constitution</p>
+    
+                <p><input type="checkbox" name="intSt" id="intSt" class="ST int"/>
+                    <input type="number" id="intStValue" name="intStValue" class="int STValue"/> Intelligence</p>
+    
+                <p><input type="checkbox" name="wisSt" id="wisSt" class="ST wis"/>
+                    <input type="number" value="" id="wisStValue" name="wisStValue" class="STValue wis"/> Wisdom</p>
+    
+                <p><input type="checkbox" name="chaSt" id="chaSt" class="ST cha"/>
+                    <input type="number" id="chaStValue" name="chaStValue" class="STValue cha"/> Charisma</p>
+            </div>
+    
+        </div>
+        
+        <div id="proficiencies">
+            
         </div>
 
-        <div id="savingThrows">
-            <p>
-                <h2>Saving Throws</h2>
-            </p>
-            <p><input type="checkbox" name="strSt" id="strSt" class="ST str"/>
-                <input type="number" id="strStValue" name="strStValue" class="STValue str"/> Strength</p>
-
-            <p><input type="checkbox" name="dexSt" id="dexSt" class="ST dex"/>
-                <input type="number" value="" id="dexStValue" name="dexStValue" class="dex STValue"/> Dexterity</p>
-
-            <p><input type="checkbox" name="conSt" id="conSt" class="ST con"/>
-                <input type="number" id="conStValue" name="conStValue" class="con STValue"/> Constitution</p>
-
-            <p><input type="checkbox" name="intSt" id="intSt" class="ST int"/>
-                <input type="number" id="intStValue" name="intStValue" class="int STValue"/> Intelligence</p>
-
-            <p><input type="checkbox" name="wisSt" id="wisSt" class="ST wis"/>
-                <input type="number" value="" id="wisStValue" name="wisStValue" class="STValue wis"/> Wisdom</p>
-
-            <p><input type="checkbox" name="chaSt" id="chaSt" class="ST cha"/>
-                <input type="number" id="chaStValue" name="chaStValue" class="STValue cha"/> Charisma</p>
-        </div>
-
+        
         <div id="skills">
             <p>
                 <h2>Skills</h2>
@@ -246,8 +252,8 @@
         </p>
         </div>
         <div>
-            <p><h2>Equipment</h2></p>
-                <ul id="equipment">
+            <p><h2>Traits</h2></p>
+                <ul id="traits">
 
                 </ul>
         </div>
@@ -258,9 +264,6 @@
             <input type="submit" id="submit" value="Save Character"/>
         </div>
     </form>
-    <!-- <script>
-        console.log()
-    </script> -->
 </body>
 <script type="module" src="api.js"></script>
 <script type="module" src="script.js"></script>
