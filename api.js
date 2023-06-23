@@ -98,7 +98,7 @@ const getRaceData = async () => {
         fetch = `https://www.dnd5eapi.co/api/races/${selectedRace}`
     }
     try{
-        const data = await fetch(`https://www.dnd5eapi.co/api/races/${selectedRace}`)
+        const data = await fetch
         .then( res=> res.json())
         .then(data => {
             const raceData = data;
@@ -160,3 +160,5 @@ const getRaceData = async () => {
         console.error('There was a problem retrieving the race data', err);
     }
 }
+
+

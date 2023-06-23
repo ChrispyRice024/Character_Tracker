@@ -205,7 +205,10 @@ const findSkillMod = (skill, mod) => {
 }
 
 let character = {
-    id:`${id}`
+    id:`${id}`,
+    skills:{},
+    stats:{},
+    modifiers:{}
 };
 console.log(character)
 
@@ -314,10 +317,12 @@ cha.addEventListener('change', (e) => {
 //Determine Skill Values
 acrobatics.addEventListener('change', (e) => {
     e.preventDefault()
-    console.log(dexMod.value)
-    mod = parseInt(dexMod.value)
-    skill = parseInt(acrobatics.value)
+
+    const mod = parseInt(dexMod.value)
+    const skill = parseInt(acrobatics.value)
     acrobaticsSkill.value = mod + skill
+    character.skills.acrobatics = e.target.value
+    console.log(character)
 })
 
 animalHandling.addEventListener('change', (e) => {
@@ -326,6 +331,7 @@ animalHandling.addEventListener('change', (e) => {
     mod = parseInt(wisMod.value)
     skill = parseInt(animalHandling.value)
     animalSkill.value = mod + skill
+    character['animalHandling'] = e.target.value
 })
 
 arcana.addEventListener('change', (e) => {
@@ -334,6 +340,7 @@ arcana.addEventListener('change', (e) => {
     mod = parseInt(intMod.value)
     skill = parseInt(arcana.value)
     arcanaSkill.value = mod + skill
+    character['arcana'] = e.target.value
 })
 
 athletics.addEventListener('change', (e) => {
@@ -342,6 +349,7 @@ athletics.addEventListener('change', (e) => {
     mod = parseInt(strMod.value)
     skill = parseInt(athletics.value)
     athleticsSkill.value = mod + skill
+    character['athletics'] = e.target.value
 })
 
 deception.addEventListener('change', (e) => {
@@ -350,6 +358,7 @@ deception.addEventListener('change', (e) => {
     mod = parseInt(chaMod.value)
     skill = parseInt(deception.value)
     deceptionSkill.value = mod + skill
+    character['deception'] = e.target.value
 })
 
 history.addEventListener('change', (e) => {
@@ -358,6 +367,7 @@ history.addEventListener('change', (e) => {
     mod = parseInt(intMod.value)
     skill = parseInt(history.value)
     historySkill.value = mod + skill
+    character['history'] = e.target.value
 })
 
 insight.addEventListener('change', (e) => {
@@ -366,6 +376,7 @@ insight.addEventListener('change', (e) => {
     mod = parseInt(wisMod.value)
     skill = parseInt(insight.value)
     insightSkill.value = mod + skill
+    character['insight'] = e.target.value
 })
 
 intimidate.addEventListener('change', (e) => {
@@ -374,6 +385,7 @@ intimidate.addEventListener('change', (e) => {
     mod = parseInt(chaMod.value)
     skill = parseInt(intimidate.value)
     intimidateSkill.value = mod + skill
+    character['intimidate'] = e.target.value
 })
 
 investigate.addEventListener('change', (e) => {
@@ -382,6 +394,7 @@ investigate.addEventListener('change', (e) => {
     mod = parseInt(intMod.value)
     skill = parseInt(investigate.value)
     investigateSkill.value = mod + skill
+    character[' investigate'] = e.target.value
 })
 
 medicine.addEventListener('change', (e) => {
@@ -390,6 +403,7 @@ medicine.addEventListener('change', (e) => {
     mod = parseInt(wisMod.value)
     skill = parseInt(medicine.value)
     medicineSkill.value = mod + skill
+    character['medicine'] = e.target.value
 })
 
 nature.addEventListener('change', (e) => {
@@ -398,6 +412,7 @@ nature.addEventListener('change', (e) => {
     mod = parseInt(intMod.value)
     skill = parseInt(nature.value)
     natureSkill.value = mod + skill
+    character['nature'] = e.target.value
 })
 
 perception.addEventListener('change', (e) => {
@@ -406,6 +421,7 @@ perception.addEventListener('change', (e) => {
     mod = parseInt(wisMod.value)
     skill = parseInt(perception.value)
     perceptionSkill.value = mod + skill
+    character['perception'] = e.target.value
 })
 
 performance.addEventListener('change', (e) => {
@@ -414,6 +430,7 @@ performance.addEventListener('change', (e) => {
     mod = parseInt(chaMod.value)
     skill = parseInt(performance.value)
     performanceSkill.value = mod + skill
+    character['performance'] = e.target.value
 })
 
 persuasion.addEventListener('change', (e) => {
@@ -467,10 +484,11 @@ const updateSkills = () => {
 //Submit Character To Local Storage
 submit.addEventListener('click', (e) => {
     e.preventDefault()
-    window.location.reload()
 
-// localStorage.clear()
-    localStorage.setItem(`${character.id}`, JSON.stringify(character))
+    const characterData = JSON.stringify(character) 
+    
+    window.location.reload()
+    // localStorage.clear()
 })
 console.log(character)
 
